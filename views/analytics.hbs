@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Firebase App (the core Firebase SDK) -->
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
+  <!-- Firebase Analytics -->
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-analytics.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-analytics.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBRN8B9hj89R1Zghjj64plxAfRn3rIlhKM",
+      authDomain: "ashes-3d1a1.firebaseapp.com",
+      projectId: "ashes-3d1a1",
+      storageBucket: "ashes-3d1a1.appspot.com",
+      messagingSenderId: "415546642092",
+      appId: "1:415546642092:web:10a6df27d9d6a351ca9909"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+
+    function logButtonClick() {
+      firebase.analytics().logEvent('button_click', {
+        button_name: 'ExampleButton'
+      });
+    }
+  </script>
+  <!-- Custom Styles -->
+  <style>
+    body {
+      background-color: #121212; /* Dark background */
+      color: #ffffff; /* White text */
+    }
+    .btn-primary {
+      background-color: #3f51b5; /* Primary button color */
+      border-color: #3f51b5; /* Primary button border color */
+    }
+    .btn-primary:hover {
+      background-color: #1e88e5; /* Primary button hover color */
+      border-color: #1e88e5; /* Primary button hover border color */
+    }
+    .container {
+      background-color: #6b6060; /* Container background color */
+      border-radius: 10px; /* Rounded corners for containers */
+      padding: 20px; /* Padding inside containers */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Container shadow */
+    }
+    a {
+      color: #ffffff; /* Link color */
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <a href="/" class="btn btn-primary">Home</a>
+    <a href="/feedbacks" class="btn btn-primary">Feedbacks</a>
+  </div>
+  <div class="container mt-5">
+    <button class="btn btn-danger" onclick="logButtonClick()">Click</button>
+  </div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+ <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin</title>
+        <link rel="shortcut icon" href="images/Logo.png" type="image/x-icon">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="stylesheets/style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container mt-5">
+            <a href="/feedbacks" class="btn btn-primary">Feedbacks</a>
+            <a href="/contents" class="btn btn-primary">Articles</a>
+        </div>
+        <div class="container mt-5">
+            <h1>ASHES</h1>
+            <form action="/" method="POST" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="category" class="form-label">Select Category:</label>
+                    <select id="category" name="category" class="form-select" onchange="showForm()">
+                        <option value="category1">Create Articles</option>
+                        <option value="category2">Add Images</option>
+                        <option value="category3">Add Players</option>
+                        <option value="category4">Add Fixtures</option>
+                    </select>
+                </div>
+                
+                <div id="categoryForms">
+                    <!-- Category 1 Form -->
+                    <div id="category1Form" style="display:none;">
+                        <div class="mb-3">
+                            <label for="category1Field1" class="form-label">Title</label>
+                            <input type="text" id="ArticleTitle" name="Title" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="category1Field2" class="form-label">SubTitle</label>
+                            <input type="text" id="SubTitle" name="Subtitle" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="category1Field2" class="form-label">Thumbnail</label>
+                            <input type="file" id="Thumbnail" name="ThumbNail" class="form-control">
+                        </div>                    
+                        <div class="mb-3">
+                            <label for="category1Field2" class="form-label">Body</label>
+                            <input type="text " id="Body" name="Body" class="form-control">
+                        </div>
+                    </div>
+                    
+                    <!-- Category 2 Form -->
+                    <div id="category2Form" style="display:none;">
+                        <div class="mb-3">
+                            <label for="category2Field1" class="form-label">Image</label>
+                            <input type="file" id="ImageField1" name="Image" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="category2Field2" class="form-label">SubTitle</label>
+                            <input type="text" id="ImageSubTitle" name="SubTitle" class="form-control">
+                        </div>
+                    </div>
+                    
+                    <!-- Category 3 Form -->
+                    <div id="category3Form" style="display:none;">
+                        <div class="mb-3">
+                            <label for="category3Field1" class="form-label">Player Name</label>
+                            <input type="text" id="PlayerNameField1" name="Name" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="category3Field2" class="form-label">Image</label>
+                            <input type="file" id="PlayerImageField2" name="Image" class="form-control">
+                        </div>
+                    </div>
+                    
+                    <!-- Category 4 Form -->
+                    <div id="category4Form" style="display:none;">
+                        <div class="mb-3">
+                            <label for="category4Field1" class="form-label">Team1</label>
+                            <input type="file" id="TeamField1" name="Team1" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="category4Field2" class="form-label">Team2</label>
+                            <input type="file" id="TeamField2" name="Team2" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="category4Field3" class="form-label">Date</label>
+                            <input type="date" id="DateField" name="Date" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="category4Field4" class="form-label">Location</label>
+                            <input type="text" id="LocationField" name="Location" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="category4Field5" class="form-label">Match Center Link</label>
+                            <input type="url" id="MatchLinkField" name="MatchLink" class="form-control">
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    
+        <!-- Bootstrap Bundle with Popper -->
+    
+        <script>
+            function showForm() {
+                var selectedCategory = document.getElementById("category").value;
+                var allForms = document.querySelectorAll("#categoryForms > div");
+                allForms.forEach(form => {
+                    form.style.display = "none";
+                });
+    
+                var selectedForm = document.getElementById(selectedCategory + "Form");
+                if (selectedForm) {
+                    selectedForm.style.display = "block";
+                }
+            }
+        </script>
+    </body>
+    </html>
